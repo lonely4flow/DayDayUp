@@ -1,0 +1,36 @@
+PODS:
+  - Aspects (1.4.1)
+  - FDFullscreenPopGesture (1.1)
+  - Masonry (1.1.0)
+  - MJRefresh (3.1.15.7)
+  - YYModel (1.0.4)
+  - ZJScrollPageView (0.4.0)
+
+DEPENDENCIES:
+  - Aspects
+  - FDFullscreenPopGesture (~> 1.1)
+  - Masonry (~> 1.1.0)
+  - MJRefresh (~> 3.1.13)
+  - YYModel
+  - ZJScrollPageView
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Aspects
+    - FDFullscreenPopGesture
+    - Masonry
+    - MJRefresh
+    - YYModel
+    - ZJScrollPageView
+
+SPEC CHECKSUMS:
+  Aspects: 7595ba96a6727a58ebcbfc954497fc5d2fdde546
+  FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  MJRefresh: 697f8ec75ebdbe9207767bb682cf0f51b0d8a41f
+  YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
+  ZJScrollPageView: dd8778909cb2413782616ab156e873956f6b0682
+
+PODFILE CHECKSUM: eae7b9c1b8d4ae75118cc2c7b791c02104f693f6
+
+COCOAPODS: 1.5.3
