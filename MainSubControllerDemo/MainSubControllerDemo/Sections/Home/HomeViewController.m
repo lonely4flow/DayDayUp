@@ -8,7 +8,7 @@
 
 #import "HomeViewController.h"
 @interface HomeViewController ()
-
+@property(nonatomic, strong) NSMutableArray *dataList;
 @end
 
 @implementation HomeViewController
@@ -22,9 +22,14 @@
 //        self.edgesForExtendedLayout = UIRectEdgeNone;
 //        self.automaticallyAdjustsScrollViewInsets = NO;
 //    }
-    
     [self setupUI];
     [self setupLayout];
+    [self setupDatas];
+}
+- (void)setupDatas
+{
+    [self.dataList addObject:[BaseCellModel modelWithTitle:@"Text Xib" clazz:NSClassFromString(@"TestXibViewController")]];
+    [self.dataList addObject:[BaseCellModel modelWithTitle:@"TestZJScrollPageView" clazz:NSClassFromString(@"TestZJMainViewController")]];
 }
 - (UITableViewStyle)tableViewStyle
 {
@@ -57,13 +62,14 @@
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    return self.dataList.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [UITableViewCell cellFromCodeWithTableView:tableView];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    cell.textLabel.text = @"Test Xib";
+    BaseCellModel *model = self.dataList[indexPath.row];
+    cell.textLabel.text = model.title;
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -71,5 +77,19 @@
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
     });
+    BaseCellModel *model = self.dataList[indexPath.row];
+    if(model.clazz != nil){
+        UIViewController *vc = [model.clazz new];
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+}
+#pragma mark - getter && setter
+- (NSMutableArray *)dataList
+{
+    if (_dataList == nil) {
+        _dataList = [NSMutableArray array];
+    }
+    return _dataList;
 }
 @end

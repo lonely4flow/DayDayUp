@@ -1,5 +1,5 @@
 //
-//  TestTwoViewController.h
+//  TestXibViewController.h
 //  MainSubControllerDemo
 //
 //  Created by LonelyFlow on 13/05/2019.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TestTwoViewController : UIViewController
+@interface TestXibViewController : UIViewController
 
 @end
 

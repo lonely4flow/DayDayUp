@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface TestXibTwo : UIView
 
+@property (weak, nonatomic) IBOutlet UITextView *txtView;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -24,10 +24,14 @@
 		EA93C2B622890DC500872EE9 /* TestXibOne.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA93C2B522890DC400872EE9 /* TestXibOne.xib */; };
 		EA93C2B922890DF200872EE9 /* TestXibTwo.m in Sources */ = {isa = PBXBuildFile; fileRef = EA93C2B822890DF200872EE9 /* TestXibTwo.m */; };
 		EA93C2BB22890DFB00872EE9 /* TestXibTwo.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA93C2BA22890DFB00872EE9 /* TestXibTwo.xib */; };
-		EA93C2BE22890E8B00872EE9 /* TestOneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA93C2BD22890E8B00872EE9 /* TestOneViewController.m */; };
-		EA93C2C222890EA300872EE9 /* TestTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA93C2C022890EA300872EE9 /* TestTwoViewController.m */; };
-		EA93C2C322890EA300872EE9 /* TestTwoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA93C2C122890EA300872EE9 /* TestTwoViewController.xib */; };
-		EA93C2C522890F6200872EE9 /* TestOneViewControllerXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA93C2C422890F6200872EE9 /* TestOneViewControllerXib.xib */; };
+		EA93C2C222890EA300872EE9 /* TestXibViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA93C2C022890EA300872EE9 /* TestXibViewController.m */; };
+		EA93C2C322890EA300872EE9 /* TestXibViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA93C2C122890EA300872EE9 /* TestXibViewController.xib */; };
+		EAAB313C228A9AD000193BAE /* BaseCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EAAB313B228A9AD000193BAE /* BaseCellModel.m */; };
+		EAAB313F228AA08600193BAE /* TestXibThree.m in Sources */ = {isa = PBXBuildFile; fileRef = EAAB313E228AA08600193BAE /* TestXibThree.m */; };
+		EAAB3141228AA09100193BAE /* TestXibThree.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAAB3140228AA09100193BAE /* TestXibThree.xib */; };
+		EAAB3145228AA90F00193BAE /* TestZJMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAAB3144228AA90F00193BAE /* TestZJMainViewController.m */; };
+		EAAB3148228AA92500193BAE /* TestZJSubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAAB3147228AA92500193BAE /* TestZJSubViewController.m */; };
+		EAAB314B228AAF1D00193BAE /* ZJContentView+FDFullGessture.m in Sources */ = {isa = PBXBuildFile; fileRef = EAAB314A228AAF1D00193BAE /* ZJContentView+FDFullGessture.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,12 +88,20 @@
 		EA93C2B722890DF100872EE9 /* TestXibTwo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestXibTwo.h; sourceTree = "<group>"; };
 		EA93C2B822890DF200872EE9 /* TestXibTwo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestXibTwo.m; sourceTree = "<group>"; };
 		EA93C2BA22890DFB00872EE9 /* TestXibTwo.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestXibTwo.xib; sourceTree = "<group>"; };
-		EA93C2BC22890E8B00872EE9 /* TestOneViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestOneViewController.h; sourceTree = "<group>"; };
-		EA93C2BD22890E8B00872EE9 /* TestOneViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestOneViewController.m; sourceTree = "<group>"; };
-		EA93C2BF22890EA300872EE9 /* TestTwoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestTwoViewController.h; sourceTree = "<group>"; };
-		EA93C2C022890EA300872EE9 /* TestTwoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestTwoViewController.m; sourceTree = "<group>"; };
-		EA93C2C122890EA300872EE9 /* TestTwoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestTwoViewController.xib; sourceTree = "<group>"; };
-		EA93C2C422890F6200872EE9 /* TestOneViewControllerXib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestOneViewControllerXib.xib; sourceTree = "<group>"; };
+		EA93C2BF22890EA300872EE9 /* TestXibViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestXibViewController.h; sourceTree = "<group>"; };
+		EA93C2C022890EA300872EE9 /* TestXibViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestXibViewController.m; sourceTree = "<group>"; };
+		EA93C2C122890EA300872EE9 /* TestXibViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestXibViewController.xib; sourceTree = "<group>"; };
+		EAAB313A228A9AD000193BAE /* BaseCellModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseCellModel.h; sourceTree = "<group>"; };
+		EAAB313B228A9AD000193BAE /* BaseCellModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseCellModel.m; sourceTree = "<group>"; };
+		EAAB313D228AA08600193BAE /* TestXibThree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestXibThree.h; sourceTree = "<group>"; };
+		EAAB313E228AA08600193BAE /* TestXibThree.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestXibThree.m; sourceTree = "<group>"; };
+		EAAB3140228AA09100193BAE /* TestXibThree.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestXibThree.xib; sourceTree = "<group>"; };
+		EAAB3143228AA90F00193BAE /* TestZJMainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestZJMainViewController.h; sourceTree = "<group>"; };
+		EAAB3144228AA90F00193BAE /* TestZJMainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestZJMainViewController.m; sourceTree = "<group>"; };
+		EAAB3146228AA92500193BAE /* TestZJSubViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestZJSubViewController.h; sourceTree = "<group>"; };
+		EAAB3147228AA92500193BAE /* TestZJSubViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestZJSubViewController.m; sourceTree = "<group>"; };
+		EAAB3149228AAF1D00193BAE /* ZJContentView+FDFullGessture.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ZJContentView+FDFullGessture.h"; sourceTree = "<group>"; };
+		EAAB314A228AAF1D00193BAE /* ZJContentView+FDFullGessture.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ZJContentView+FDFullGessture.m"; sourceTree = "<group>"; };
 		EAD663D0228940BA005D1273 /* Consts.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Consts.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -194,6 +206,7 @@
 		EA93C28F2286EA3900872EE9 /* Sections */ = {
 			isa = PBXGroup;
 			children = (
+				EAAB3142228AA8B200193BAE /* TestZJScrollPageView */,
 				EA93C2B122890D9900872EE9 /* TestXib */,
 				EA93C2A72286ED0600872EE9 /* Mine */,
 				EA93C2A62286ED0100872EE9 /* Home */,
@@ -228,6 +241,8 @@
 				EA93C2972286EC5800872EE9 /* BaseViewController.m */,
 				EA93C2992286EC6B00872EE9 /* BaseTableViewController.h */,
 				EA93C29A2286EC6B00872EE9 /* BaseTableViewController.m */,
+				EAAB313A228A9AD000193BAE /* BaseCellModel.h */,
+				EAAB313B228A9AD000193BAE /* BaseCellModel.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -270,14 +285,27 @@
 				EA93C2B722890DF100872EE9 /* TestXibTwo.h */,
 				EA93C2B822890DF200872EE9 /* TestXibTwo.m */,
 				EA93C2BA22890DFB00872EE9 /* TestXibTwo.xib */,
-				EA93C2BC22890E8B00872EE9 /* TestOneViewController.h */,
-				EA93C2BD22890E8B00872EE9 /* TestOneViewController.m */,
-				EA93C2C422890F6200872EE9 /* TestOneViewControllerXib.xib */,
-				EA93C2BF22890EA300872EE9 /* TestTwoViewController.h */,
-				EA93C2C022890EA300872EE9 /* TestTwoViewController.m */,
-				EA93C2C122890EA300872EE9 /* TestTwoViewController.xib */,
+				EAAB313D228AA08600193BAE /* TestXibThree.h */,
+				EAAB313E228AA08600193BAE /* TestXibThree.m */,
+				EAAB3140228AA09100193BAE /* TestXibThree.xib */,
+				EA93C2BF22890EA300872EE9 /* TestXibViewController.h */,
+				EA93C2C022890EA300872EE9 /* TestXibViewController.m */,
+				EA93C2C122890EA300872EE9 /* TestXibViewController.xib */,
 			);
 			path = TestXib;
+			sourceTree = "<group>";
+		};
+		EAAB3142228AA8B200193BAE /* TestZJScrollPageView */ = {
+			isa = PBXGroup;
+			children = (
+				EAAB3143228AA90F00193BAE /* TestZJMainViewController.h */,
+				EAAB3144228AA90F00193BAE /* TestZJMainViewController.m */,
+				EAAB3146228AA92500193BAE /* TestZJSubViewController.h */,
+				EAAB3147228AA92500193BAE /* TestZJSubViewController.m */,
+				EAAB3149228AAF1D00193BAE /* ZJContentView+FDFullGessture.h */,
+				EAAB314A228AAF1D00193BAE /* ZJContentView+FDFullGessture.m */,
+			);
+			path = TestZJScrollPageView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -386,9 +414,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA93C2BB22890DFB00872EE9 /* TestXibTwo.xib in Resources */,
-				EA93C2C322890EA300872EE9 /* TestTwoViewController.xib in Resources */,
+				EA93C2C322890EA300872EE9 /* TestXibViewController.xib in Resources */,
 				EA93C26A2286B81800872EE9 /* LaunchScreen.storyboard in Resources */,
-				EA93C2C522890F6200872EE9 /* TestOneViewControllerXib.xib in Resources */,
+				EAAB3141228AA09100193BAE /* TestXibThree.xib in Resources */,
 				EA93C2672286B81800872EE9 /* Assets.xcassets in Resources */,
 				EA93C2B622890DC500872EE9 /* TestXibOne.xib in Resources */,
 			);
@@ -473,17 +501,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA93C2B422890DBB00872EE9 /* TestXibOne.m in Sources */,
-				EA93C2BE22890E8B00872EE9 /* TestOneViewController.m in Sources */,
 				EA93C2A52286ECD200872EE9 /* UIColor+Tools.m in Sources */,
 				EA93C2982286EC5800872EE9 /* BaseViewController.m in Sources */,
 				EA93C2AD2286ED2500872EE9 /* MineViewController.m in Sources */,
 				EA93C2B922890DF200872EE9 /* TestXibTwo.m in Sources */,
+				EAAB313C228A9AD000193BAE /* BaseCellModel.m in Sources */,
 				EA93C2A42286ECD200872EE9 /* UITableViewCell+DequeCell.m in Sources */,
 				EA93C26D2286B81800872EE9 /* main.m in Sources */,
+				EAAB3148228AA92500193BAE /* TestZJSubViewController.m in Sources */,
 				EA93C25F2286B81700872EE9 /* AppDelegate.m in Sources */,
+				EAAB313F228AA08600193BAE /* TestXibThree.m in Sources */,
 				EA93C29B2286EC6B00872EE9 /* BaseTableViewController.m in Sources */,
+				EAAB3145228AA90F00193BAE /* TestZJMainViewController.m in Sources */,
+				EAAB314B228AAF1D00193BAE /* ZJContentView+FDFullGessture.m in Sources */,
 				EA93C2AA2286ED1A00872EE9 /* HomeViewController.m in Sources */,
-				EA93C2C222890EA300872EE9 /* TestTwoViewController.m in Sources */,
+				EA93C2C222890EA300872EE9 /* TestXibViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

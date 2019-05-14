@@ -222,7 +222,7 @@ static NSString *const kContentOffsetOffKey = @"contentOffset";
          return;
     }
 
-    NSLog(@"%f------%ld----%ld------", progress, _oldIndex, _currentIndex);
+    //NSLog(@"%f------%ld----%ld------", progress, _oldIndex, _currentIndex);
     
     [self contentViewDidMoveFromIndex:_oldIndex toIndex:_currentIndex progress:progress];
 
