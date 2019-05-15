@@ -1,17 +1,14 @@
 //
-//  FlutterViewController.h
+//  MyFlutterViewController.h
 //  HybridiOS
 //
-//  Created by 娜娜子 on 15/05/2019.
+//  Created by loneylyflow on 15/05/2019.
 //  Copyright © 2019 Lonely traveller. All rights reserved.
 //
 
 #import "BaseViewController.h"
-
-NS_ASSUME_NONNULL_BEGIN
-
-@interface FlutterViewController : BaseViewController
+#import <flutter_boost/FlutterBoost.h>
+@interface MyFlutterViewController : FLBFlutterViewContainer
 
 @end
 
-NS_ASSUME_NONNULL_END

@@ -2,9 +2,12 @@
 //  Debug.xcconfig
 //  HybridiOS
 //
-//  Created by 娜娜子 on 15/05/2019.
+//  Created by loneylyflow on 15/05/2019.
 //  Copyright © 2019 Lonely traveller. All rights reserved.
 //
 
 // Configuration settings file format documentation can be found at:
 // https://help.apple.com/xcode/#/dev745c5c974
+#include "Flutter.xcconfig"
+// 下面为pod引入需要增加的一行
+#include "Pods/Target Support Files/Pods-HybridiOS/Pods-HybridiOS.debug.xcconfig"

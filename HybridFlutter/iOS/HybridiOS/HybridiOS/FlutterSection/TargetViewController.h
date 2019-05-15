@@ -2,7 +2,7 @@
 //  TargetViewController.h
 //  HybridiOS
 //
-//  Created by 娜娜子 on 15/05/2019.
+//  Created by loneylyflow on 15/05/2019.
 //  Copyright © 2019 Lonely traveller. All rights reserved.
 //
 
