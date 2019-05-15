@@ -1,0 +1,10 @@
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/Aspects" "${PODS_CONFIGURATION_BUILD_DIR}/FDFullscreenPopGesture" "${PODS_CONFIGURATION_BUILD_DIR}/FlutterPluginRegistrant" "${PODS_CONFIGURATION_BUILD_DIR}/MJRefresh" "${PODS_CONFIGURATION_BUILD_DIR}/Masonry" "${PODS_CONFIGURATION_BUILD_DIR}/YYModel" "${PODS_CONFIGURATION_BUILD_DIR}/ZJScrollPageView" "${PODS_CONFIGURATION_BUILD_DIR}/flutter_boost" "${PODS_CONFIGURATION_BUILD_DIR}/xservice_kit" "${PODS_ROOT}/../../../Flutter/flutter_module/.ios/Flutter/engine"
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
+OTHER_CFLAGS = $(inherited) -iquote "${PODS_CONFIGURATION_BUILD_DIR}/Aspects/Aspects.framework/Headers" -iquote "${PODS_CONFIGURATION_BUILD_DIR}/FDFullscreenPopGesture/FDFullscreenPopGesture.framework/Headers" -iquote "${PODS_CONFIGURATION_BUILD_DIR}/FlutterPluginRegistrant/FlutterPluginRegistrant.framework/Headers" -iquote "${PODS_CONFIGURATION_BUILD_DIR}/MJRefresh/MJRefresh.framework/Headers" -iquote "${PODS_CONFIGURATION_BUILD_DIR}/Masonry/Masonry.framework/Headers" -iquote "${PODS_CONFIGURATION_BUILD_DIR}/YYModel/YYModel.framework/Headers" -iquote "${PODS_CONFIGURATION_BUILD_DIR}/ZJScrollPageView/ZJScrollPageView.framework/Headers" -iquote "${PODS_CONFIGURATION_BUILD_DIR}/flutter_boost/flutter_boost.framework/Headers" -iquote "${PODS_CONFIGURATION_BUILD_DIR}/xservice_kit/xservice_kit.framework/Headers"
+OTHER_LDFLAGS = $(inherited) -framework "Flutter"
+PODS_BUILD_DIR = ${BUILD_DIR}
+PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
+PODS_PODFILE_DIR_PATH = ${SRCROOT}/.
+PODS_ROOT = ${SRCROOT}/Pods
+#include "/Users/tony/Documents/iOS_workspace/DayDayUp/HybridFlutter/Flutter/flutter_module/.ios/Flutter/Generated.xcconfig"

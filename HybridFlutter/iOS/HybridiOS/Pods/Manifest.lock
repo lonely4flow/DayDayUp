@@ -1,0 +1,64 @@
+PODS:
+  - Aspects (1.4.1)
+  - FDFullscreenPopGesture (1.1)
+  - Flutter (1.0.0)
+  - flutter_boost (0.0.1):
+    - Flutter
+    - xservice_kit
+  - FlutterPluginRegistrant (0.0.1):
+    - Flutter
+    - flutter_boost
+    - xservice_kit
+  - Masonry (1.1.0)
+  - MJRefresh (3.1.15.7)
+  - xservice_kit (0.0.1):
+    - Flutter
+  - YYModel (1.0.4)
+  - ZJScrollPageView (0.4.0)
+
+DEPENDENCIES:
+  - Aspects
+  - FDFullscreenPopGesture (~> 1.1)
+  - Flutter (from `../../Flutter/flutter_module/.ios/Flutter/engine`)
+  - flutter_boost (from `../../Flutter/flutter_module/.ios/Flutter/.symlinks/flutter_boost/ios`)
+  - FlutterPluginRegistrant (from `../../Flutter/flutter_module/.ios/Flutter/FlutterPluginRegistrant`)
+  - Masonry (~> 1.1.0)
+  - MJRefresh (~> 3.1.13)
+  - xservice_kit (from `../../Flutter/flutter_module/.ios/Flutter/.symlinks/xservice_kit/ios`)
+  - YYModel
+  - ZJScrollPageView
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Aspects
+    - FDFullscreenPopGesture
+    - Masonry
+    - MJRefresh
+    - YYModel
+    - ZJScrollPageView
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: "../../Flutter/flutter_module/.ios/Flutter/engine"
+  flutter_boost:
+    :path: "../../Flutter/flutter_module/.ios/Flutter/.symlinks/flutter_boost/ios"
+  FlutterPluginRegistrant:
+    :path: "../../Flutter/flutter_module/.ios/Flutter/FlutterPluginRegistrant"
+  xservice_kit:
+    :path: "../../Flutter/flutter_module/.ios/Flutter/.symlinks/xservice_kit/ios"
+
+SPEC CHECKSUMS:
+  Aspects: 7595ba96a6727a58ebcbfc954497fc5d2fdde546
+  FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
+  Flutter: 9d0fac939486c9aba2809b7982dfdbb47a7b0296
+  flutter_boost: 6a083f2f1b67f9b08724d6c4b280a099d1b40797
+  FlutterPluginRegistrant: b761ee226861bee83e48a6917f6ab35d054c8533
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  MJRefresh: 697f8ec75ebdbe9207767bb682cf0f51b0d8a41f
+  xservice_kit: a86c64372b3e41e7d8e9b1a0b9139866680f525c
+  YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
+  ZJScrollPageView: dd8778909cb2413782616ab156e873956f6b0682
+
+PODFILE CHECKSUM: abe117bd5a8bf21deea6c6954a2a8b68f7c7cf9d
+
+COCOAPODS: 1.5.3

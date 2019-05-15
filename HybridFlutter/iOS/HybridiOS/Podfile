@@ -1,0 +1,30 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+use_frameworks!
+target 'HybridiOS' do
+  # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
+  # use_frameworks!
+
+  # Pods for HybridiOS
+  # 返回侧滑适配有导航栏和没导航栏的切换
+   pod 'FDFullscreenPopGesture', '~> 1.1'
+   pod 'ZJScrollPageView'
+   pod 'YYModel'
+   pod 'Aspects'
+   pod 'Masonry', '~> 1.1.0'
+   pod 'MJRefresh', '~> 3.1.13'
+   
+   flutter_application_path = "../../Flutter/flutter_module"
+   eval(File.read(File.join(flutter_application_path, '.ios', 'Flutter', 'podhelper.rb')), binding)
+
+  target 'HybridiOSTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'HybridiOSUITests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
