@@ -1,0 +1,20 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+platform :ios, '9.0'
+use_frameworks!
+
+inhibit_all_warnings!
+def m_pods
+    
+    # 返回侧滑适配有导航栏和没导航栏的切换
+    pod 'FDFullscreenPopGesture', '~> 1.1'
+    pod 'ZJScrollPageView'
+    pod 'YYModel'
+    pod 'Aspects'
+    pod 'Masonry', '~> 1.1.0'
+    pod 'MJRefresh', '~> 3.1.13'
+end
+
+target 'MainSubControllerDemo' do
+    m_pods
+end

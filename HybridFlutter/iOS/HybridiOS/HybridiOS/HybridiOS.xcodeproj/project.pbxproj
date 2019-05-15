@@ -1,0 +1,578 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EAAB315A228ADB4300193BAE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EAAB3159228ADB4300193BAE /* AppDelegate.m */; };
+		EAAB315D228ADB4300193BAE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAAB315C228ADB4300193BAE /* ViewController.m */; };
+		EAAB3160228ADB4300193BAE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAAB315E228ADB4300193BAE /* Main.storyboard */; };
+		EAAB3162228ADB4500193BAE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAAB3161228ADB4500193BAE /* Assets.xcassets */; };
+		EAAB3165228ADB4500193BAE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAAB3163228ADB4500193BAE /* LaunchScreen.storyboard */; };
+		EAAB3168228ADB4500193BAE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EAAB3167228ADB4500193BAE /* main.m */; };
+		EAAB3172228ADB4500193BAE /* HybridiOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EAAB3171228ADB4500193BAE /* HybridiOSTests.m */; };
+		EAAB317D228ADB4500193BAE /* HybridiOSUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = EAAB317C228ADB4500193BAE /* HybridiOSUITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EAAB316E228ADB4500193BAE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EAAB314D228ADB4300193BAE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EAAB3154228ADB4300193BAE;
+			remoteInfo = HybridiOS;
+		};
+		EAAB3179228ADB4500193BAE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EAAB314D228ADB4300193BAE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EAAB3154228ADB4300193BAE;
+			remoteInfo = HybridiOS;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		EAAB3155228ADB4300193BAE /* HybridiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HybridiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EAAB3158228ADB4300193BAE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		EAAB3159228ADB4300193BAE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		EAAB315B228ADB4300193BAE /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		EAAB315C228ADB4300193BAE /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		EAAB315F228ADB4300193BAE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EAAB3161228ADB4500193BAE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EAAB3164228ADB4500193BAE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		EAAB3166228ADB4500193BAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EAAB3167228ADB4500193BAE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		EAAB316D228ADB4500193BAE /* HybridiOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HybridiOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EAAB3171228ADB4500193BAE /* HybridiOSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HybridiOSTests.m; sourceTree = "<group>"; };
+		EAAB3173228ADB4500193BAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EAAB3178228ADB4500193BAE /* HybridiOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HybridiOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EAAB317C228ADB4500193BAE /* HybridiOSUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HybridiOSUITests.m; sourceTree = "<group>"; };
+		EAAB317E228ADB4500193BAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EAAB3152228ADB4300193BAE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EAAB316A228ADB4500193BAE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EAAB3175228ADB4500193BAE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EAAB314C228ADB4300193BAE = {
+			isa = PBXGroup;
+			children = (
+				EAAB3157228ADB4300193BAE /* HybridiOS */,
+				EAAB3170228ADB4500193BAE /* HybridiOSTests */,
+				EAAB317B228ADB4500193BAE /* HybridiOSUITests */,
+				EAAB3156228ADB4300193BAE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EAAB3156228ADB4300193BAE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EAAB3155228ADB4300193BAE /* HybridiOS.app */,
+				EAAB316D228ADB4500193BAE /* HybridiOSTests.xctest */,
+				EAAB3178228ADB4500193BAE /* HybridiOSUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EAAB3157228ADB4300193BAE /* HybridiOS */ = {
+			isa = PBXGroup;
+			children = (
+				EAAB3158228ADB4300193BAE /* AppDelegate.h */,
+				EAAB3159228ADB4300193BAE /* AppDelegate.m */,
+				EAAB315B228ADB4300193BAE /* ViewController.h */,
+				EAAB315C228ADB4300193BAE /* ViewController.m */,
+				EAAB315E228ADB4300193BAE /* Main.storyboard */,
+				EAAB3161228ADB4500193BAE /* Assets.xcassets */,
+				EAAB3163228ADB4500193BAE /* LaunchScreen.storyboard */,
+				EAAB3166228ADB4500193BAE /* Info.plist */,
+				EAAB3167228ADB4500193BAE /* main.m */,
+			);
+			path = HybridiOS;
+			sourceTree = "<group>";
+		};
+		EAAB3170228ADB4500193BAE /* HybridiOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				EAAB3171228ADB4500193BAE /* HybridiOSTests.m */,
+				EAAB3173228ADB4500193BAE /* Info.plist */,
+			);
+			path = HybridiOSTests;
+			sourceTree = "<group>";
+		};
+		EAAB317B228ADB4500193BAE /* HybridiOSUITests */ = {
+			isa = PBXGroup;
+			children = (
+				EAAB317C228ADB4500193BAE /* HybridiOSUITests.m */,
+				EAAB317E228ADB4500193BAE /* Info.plist */,
+			);
+			path = HybridiOSUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EAAB3154228ADB4300193BAE /* HybridiOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EAAB3181228ADB4500193BAE /* Build configuration list for PBXNativeTarget "HybridiOS" */;
+			buildPhases = (
+				EAAB3151228ADB4300193BAE /* Sources */,
+				EAAB3152228ADB4300193BAE /* Frameworks */,
+				EAAB3153228ADB4300193BAE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HybridiOS;
+			productName = HybridiOS;
+			productReference = EAAB3155228ADB4300193BAE /* HybridiOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EAAB316C228ADB4500193BAE /* HybridiOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EAAB3184228ADB4500193BAE /* Build configuration list for PBXNativeTarget "HybridiOSTests" */;
+			buildPhases = (
+				EAAB3169228ADB4500193BAE /* Sources */,
+				EAAB316A228ADB4500193BAE /* Frameworks */,
+				EAAB316B228ADB4500193BAE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EAAB316F228ADB4500193BAE /* PBXTargetDependency */,
+			);
+			name = HybridiOSTests;
+			productName = HybridiOSTests;
+			productReference = EAAB316D228ADB4500193BAE /* HybridiOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		EAAB3177228ADB4500193BAE /* HybridiOSUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EAAB3187228ADB4500193BAE /* Build configuration list for PBXNativeTarget "HybridiOSUITests" */;
+			buildPhases = (
+				EAAB3174228ADB4500193BAE /* Sources */,
+				EAAB3175228ADB4500193BAE /* Frameworks */,
+				EAAB3176228ADB4500193BAE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EAAB317A228ADB4500193BAE /* PBXTargetDependency */,
+			);
+			name = HybridiOSUITests;
+			productName = HybridiOSUITests;
+			productReference = EAAB3178228ADB4500193BAE /* HybridiOSUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EAAB314D228ADB4300193BAE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = "Lonely traveller";
+				TargetAttributes = {
+					EAAB3154228ADB4300193BAE = {
+						CreatedOnToolsVersion = 10.2;
+					};
+					EAAB316C228ADB4500193BAE = {
+						CreatedOnToolsVersion = 10.2;
+						TestTargetID = EAAB3154228ADB4300193BAE;
+					};
+					EAAB3177228ADB4500193BAE = {
+						CreatedOnToolsVersion = 10.2;
+						TestTargetID = EAAB3154228ADB4300193BAE;
+					};
+				};
+			};
+			buildConfigurationList = EAAB3150228ADB4300193BAE /* Build configuration list for PBXProject "HybridiOS" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EAAB314C228ADB4300193BAE;
+			productRefGroup = EAAB3156228ADB4300193BAE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EAAB3154228ADB4300193BAE /* HybridiOS */,
+				EAAB316C228ADB4500193BAE /* HybridiOSTests */,
+				EAAB3177228ADB4500193BAE /* HybridiOSUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EAAB3153228ADB4300193BAE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EAAB3165228ADB4500193BAE /* LaunchScreen.storyboard in Resources */,
+				EAAB3162228ADB4500193BAE /* Assets.xcassets in Resources */,
+				EAAB3160228ADB4300193BAE /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EAAB316B228ADB4500193BAE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EAAB3176228ADB4500193BAE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EAAB3151228ADB4300193BAE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EAAB315D228ADB4300193BAE /* ViewController.m in Sources */,
+				EAAB3168228ADB4500193BAE /* main.m in Sources */,
+				EAAB315A228ADB4300193BAE /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EAAB3169228ADB4500193BAE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EAAB3172228ADB4500193BAE /* HybridiOSTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EAAB3174228ADB4500193BAE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EAAB317D228ADB4500193BAE /* HybridiOSUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EAAB316F228ADB4500193BAE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EAAB3154228ADB4300193BAE /* HybridiOS */;
+			targetProxy = EAAB316E228ADB4500193BAE /* PBXContainerItemProxy */;
+		};
+		EAAB317A228ADB4500193BAE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EAAB3154228ADB4300193BAE /* HybridiOS */;
+			targetProxy = EAAB3179228ADB4500193BAE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		EAAB315E228ADB4300193BAE /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EAAB315F228ADB4300193BAE /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		EAAB3163228ADB4500193BAE /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EAAB3164228ADB4500193BAE /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EAAB317F228ADB4500193BAE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		EAAB3180228ADB4500193BAE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EAAB3182228ADB4500193BAE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = HybridiOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lonely4flow.HybridiOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EAAB3183228ADB4500193BAE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = HybridiOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lonely4flow.HybridiOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		EAAB3185228ADB4500193BAE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = HybridiOSTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lonely4flow.HybridiOSTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HybridiOS.app/HybridiOS";
+			};
+			name = Debug;
+		};
+		EAAB3186228ADB4500193BAE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = HybridiOSTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lonely4flow.HybridiOSTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HybridiOS.app/HybridiOS";
+			};
+			name = Release;
+		};
+		EAAB3188228ADB4500193BAE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = HybridiOSUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lonely4flow.HybridiOSUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = HybridiOS;
+			};
+			name = Debug;
+		};
+		EAAB3189228ADB4500193BAE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = HybridiOSUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lonely4flow.HybridiOSUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = HybridiOS;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EAAB3150228ADB4300193BAE /* Build configuration list for PBXProject "HybridiOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EAAB317F228ADB4500193BAE /* Debug */,
+				EAAB3180228ADB4500193BAE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EAAB3181228ADB4500193BAE /* Build configuration list for PBXNativeTarget "HybridiOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EAAB3182228ADB4500193BAE /* Debug */,
+				EAAB3183228ADB4500193BAE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EAAB3184228ADB4500193BAE /* Build configuration list for PBXNativeTarget "HybridiOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EAAB3185228ADB4500193BAE /* Debug */,
+				EAAB3186228ADB4500193BAE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EAAB3187228ADB4500193BAE /* Build configuration list for PBXNativeTarget "HybridiOSUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EAAB3188228ADB4500193BAE /* Debug */,
+				EAAB3189228ADB4500193BAE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EAAB314D228ADB4300193BAE /* Project object */;
+}
