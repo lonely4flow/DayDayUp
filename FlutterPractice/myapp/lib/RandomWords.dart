@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
+import 'package:myapp/SavedWords.dart';
 
 class RandomWords extends StatefulWidget{
     @override
@@ -15,8 +16,51 @@ class RandomWordsState extends State<RandomWords>{
   Widget build(BuildContext context){
       // final wordPair = new WordPair.random();
       // return new Text(wordPair.asPascalCase);
-      return _buildSuggestions();
+    //  return _buildSuggestions();
+    return new Scaffold(
+      appBar: new AppBar(
+          title: new Text('Startup Name Generator'),
+          actions: <Widget>[
+            new IconButton(
+              icon: new Icon(Icons.list),
+              onPressed: _pushSavedPage)
+          ],
+      ),
+      body: _buildSuggestions(),
+    );
   }
+void _pushSavedPage(){
+  // Navigator.of(context).push(
+  //   new MaterialPageRoute(new SavedWords())
+  // );
+}
+void _pushSaved(){
+   Navigator.of(context).push(
+     new MaterialPageRoute(
+       builder: (context){
+         final tiles = _saved.map
+         (
+           (pair){
+            return new ListTile(
+              title: new Text(pair.asPascalCase,style: _biggerFont)
+            );
+          }
+        );
+
+        final divided = ListTile.divideTiles
+        (context: context,
+              tiles: tiles,
+            ).toList();
+
+
+            return new Scaffold(
+              appBar: new AppBar(title: new Text('Save Suggestions')),
+              body: new ListView(children: divided)
+            );
+       },
+     )
+   );
+}
 
  Widget _buildSuggestions(){
    return new ListView.builder(
