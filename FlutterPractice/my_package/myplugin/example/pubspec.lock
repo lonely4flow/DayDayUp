@@ -41,15 +41,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  flutter_boost:
-    dependency: "direct main"
-    description:
-      path: "."
-      ref: "0.0.410"
-      resolved-ref: f2dace06888a588740155f18b4208b9a0c9fde6f
-      url: "https://github.com/alibaba/flutter_boost.git"
-    source: git
-    version: "0.0.407"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -69,6 +60,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.1.6"
+  myplugin:
+    dependency: "direct dev"
+    description:
+      path: ".."
+      relative: true
+    source: path
+    version: "0.0.1"
   path:
     dependency: transitive
     description:
@@ -151,12 +149,5 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.8"
-  xservice_kit:
-    dependency: transitive
-    description:
-      name: xservice_kit
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.0.29"
 sdks:
   dart: ">=2.2.0 <3.0.0"

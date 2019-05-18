@@ -109,7 +109,7 @@
 //    [self.navigationController pushViewController:flutterViewController animated:YES];
     
     MyFlutterViewController *vc = MyFlutterViewController.new;
-    NSString *name = @"sample://firstPage";
+    NSString *name = @"jingyi";
     NSDictionary *params = @{};
     [vc setName:name params:params];
     //[self.navigationController presentViewController:vc animated:YES completion:nil];

@@ -1,146 +1,117 @@
-import 'dart:ui' as ui; // 调用window拿到route判断跳转哪个界面
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_module/RandomWords.dart';
-//
-//
-// void main() => runApp(_widgetForRoute(ui.window.defaultRouteName));
-//
-// // 根据iOS端传来的route跳转不同界面
-// Widget _widgetForRoute(String route) {
-//   switch (route) {
-//     case 'myApp':
-//       return new MyApp();
-//     case 'home':
-//       return new HomePage();
-//     default:
-//       return Center(
-//         child: Text('Unknown route: $route', textDirection: TextDirection.ltr),
-//       );
-//   }
-// }
-//
-// class MyApp extends StatelessWidget {
-//
-//   Widget _home(BuildContext context) {
-//     return new MyHomePage(title: 'Flutter 3Demo Home Page2');
-//   }
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return new MaterialApp(
-//       title: 'Flutter Demo',
-//       theme: new ThemeData(
-//         primarySwatch: Colors.blue,
-//       ),
-//       routes: <String, WidgetBuilder>{
-//         "/home":(BuildContext context) => new HomePage(),
-//       },
-//       home: _home(context),
-//     );
-//   }
-// }
-//
-// class MyHomePage extends StatefulWidget {
-//   MyHomePage({Key key, this.title}) : super(key: key);
-//
-//   final String title;
-//
-//   @override
-//   _MyHomePageState createState() => new _MyHomePageState();
-// }
-//
-// class _MyHomePageState extends State<MyHomePage> {
-//
-//   // 创建一个给native的channel (类似iOS的通知）
-//   static const methodChannel = const MethodChannel('com.pages.your/native_get');
-//
-//
-//   _iOSPushToVC() async {
-//     await methodChannel.invokeMethod('iOSFlutter', '参数');
-//   }
-//
-//   _iOSPushToVC1() async {
-//     Map<String, dynamic> map = {"code": "200", "data":[1,2,3]};
-//     await methodChannel.invokeMethod('iOSFlutter1', map);
-//   }
-//
-//   _iOSPushToVC2() async {
-//     dynamic result;
-//     try {
-//       result = await methodChannel.invokeMethod('iOSFlutter2');
-//     } on PlatformException {
-//       result = "error";
-//     }
-//     if (result is String) {
-//       print(result);
-//       showModalBottomSheet(context: context, builder: (BuildContext context) {
-//         return new Container(
-//           child: new Center(
-//             child: new Text(result, style: new TextStyle(color: Colors.brown), textAlign: TextAlign.center,),
-//           ),
-//           height: 40.0,
-//         );
-//       });
-//     }
-//   }
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return new Scaffold(
-//       body: new Center(
-//         child: new Column(
-//           mainAxisAlignment: MainAxisAlignment.center,
-//           children: <Widget>[
-//             new FlatButton(onPressed: () {
-//               _iOSPushToVC();
-//             }, child: new Text("跳转ios新界面，参数是字符串")),
-//             new FlatButton(onPressed: () {
-//               _iOSPushToVC1();
-//             }, child: new Text("传参，参数是map，看log")),
-//             new FlatButton(onPressed: () {
-//               _iOSPushToVC2();
-//             }, child: new Text("接收客户端相关内容")),
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-// }
-void main() => runApp(MyApp());
 
-class MyApp extends StatefulWidget {
+import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter_boost/flutter_boost.dart';
+
+import 'chaoyue.dart';
+void main() => runApp(_BoostWidget());
+
+class _BoostWidget extends StatefulWidget{
+
   @override
-  _MyAppState createState() => _MyAppState();
+  _BoostState createState() => _BoostState();
+
 }
 
-class _MyAppState extends State<MyApp> {
+class _BoostState extends State<_BoostWidget>{
+
   @override
   void initState() {
     super.initState();
-
-    ///register page widget builders,the key is pageName
     FlutterBoost.singleton.registerPageBuilders({
-      'sample://firstPage': (pageName, params, _) => HomePage(),
-      'sample://secondPage': (pageName, params, _) => SecondRouteWidget(),
-    });
+      'jingyi':(pageName, params, _) => JingyiWidget(),
+      'route1':(pageName, params, _){
+        print("myroute1 params:$params");
 
-    ///query current top page and load it
+        return MyFirstWidget();
+      }
+
+    });
     FlutterBoost.handleOnStartPage();
   }
 
   @override
-  Widget build(BuildContext context) => MaterialApp(
-      title: 'Flutter Boost example',
-      builder: FlutterBoost.init(), ///init container manager
-    //  home: Container());
-     home: new Scaffold(
-      appBar: new AppBar(
-        title: new Text('Welcome to Flutter'),
-      ),
-      body: new Center(
-        //child: new Text('Hello World'),
-        child: new RandomWords(),
-      ),
-    ));
+  Widget build(BuildContext context) {
+    return MaterialApp(
+        title: 'Flutter Boost example',
+        builder: FlutterBoost.init(postPush: _onRoutePushed),
+        home: Container());
+  }
+
 }
+
+void _onRoutePushed(
+    String pageName, String uniqueId, Map params, Route route, Future _) {
+}
+
+
+Widget _widgetForRoute(String route) {
+  switch (route) {
+    case 'route1':
+      return MyApp();
+    default:
+      return MyApp();
+  }
+}
+
+class MyApp extends StatelessWidget {
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Test',
+      theme: ThemeData(
+        primarySwatch: Colors.red,
+      ),
+      home: Scaffold(
+          appBar: AppBar(
+            title: Text(
+              "超越小妹妹",
+            ),
+            centerTitle: true,
+          ),
+          body: ListItemPage()
+      ),
+    );
+  }
+}
+
+
+
+class ListItemPage extends StatelessWidget {
+  List<String> items = new List<String>.generate(5, (i) => "item = $i");
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return ListView.builder(
+        itemCount: items.length,
+        itemBuilder: (context, index) {
+          return _buildRow();
+        });
+  }
+
+  Widget _buildRow() {
+    return Container(
+      padding: EdgeInsets.fromLTRB(15.0, 10.0, 15.0, 0),
+      child: Column(
+        verticalDirection: VerticalDirection.down,
+        children: <Widget>[
+          Image.network(
+            'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1552992489576&di=d328372c559f27061eec1b61b53884e2&imgtype='
+                '0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201810%2F05%2F20181005012624_hkfqf.jpg',
+            height: 220,
+            fit: BoxFit.fitWidth,
+          ),
+          new Text(
+            "这是超越小妹妹，有人说她是锦鲤，确实是个漂亮的小姑娘，其实她是我的女朋友你们都不知道",
+          )
+        ],
+      ),
+    );
+  }
+}
+
+
+
+
