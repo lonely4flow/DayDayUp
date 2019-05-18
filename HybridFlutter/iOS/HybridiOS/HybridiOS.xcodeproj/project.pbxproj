@@ -24,7 +24,6 @@
 		EAAB319E228ADC7600193BAE /* UITableViewCell+DequeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EAAB3198228ADC7600193BAE /* UITableViewCell+DequeCell.m */; };
 		EAAB319F228ADC7600193BAE /* UIColor+Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = EAAB3199228ADC7600193BAE /* UIColor+Tools.m */; };
 		EAD49F74228BE5440010D224 /* MyFlutterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD49F73228BE5440010D224 /* MyFlutterViewController.m */; };
-		EAED053C228C235400A16BD4 /* TargetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAED053B228C235400A16BD4 /* TargetViewController.m */; };
 		EAED053F228C35EA00A16BD4 /* MyFlutterRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = EAED053E228C35EA00A16BD4 /* MyFlutterRouter.m */; };
 		F3463002134D5FC63CD7AACA /* Pods_HybridiOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CA10FE0B3BEC7143A9244B0 /* Pods_HybridiOSUITests.framework */; };
 /* End PBXBuildFile section */
@@ -102,8 +101,6 @@
 		EAD49F76228BFB570010D224 /* Flutter.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Flutter.xcconfig; sourceTree = "<group>"; };
 		EAD49F77228BFB680010D224 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		EAD49F78228BFB7B0010D224 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
-		EAED053A228C235400A16BD4 /* TargetViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TargetViewController.h; sourceTree = "<group>"; };
-		EAED053B228C235400A16BD4 /* TargetViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TargetViewController.m; sourceTree = "<group>"; };
 		EAED053D228C35EA00A16BD4 /* MyFlutterRouter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyFlutterRouter.h; sourceTree = "<group>"; };
 		EAED053E228C35EA00A16BD4 /* MyFlutterRouter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyFlutterRouter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -267,8 +264,6 @@
 			children = (
 				EAD49F72228BE5440010D224 /* MyFlutterViewController.h */,
 				EAD49F73228BE5440010D224 /* MyFlutterViewController.m */,
-				EAED053A228C235400A16BD4 /* TargetViewController.h */,
-				EAED053B228C235400A16BD4 /* TargetViewController.m */,
 				EAED053D228C35EA00A16BD4 /* MyFlutterRouter.h */,
 				EAED053E228C35EA00A16BD4 /* MyFlutterRouter.m */,
 			);
@@ -543,7 +538,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n#\"$FLUTTER_ROOT/packages/flutter_tools/bin/xcode_backend.sh\" build\n\"$FLUTTER_ROOT/packages/flutter_tools/bin/xcode_backend.sh\" Debug\n\"$FLUTTER_ROOT/packages/flutter_tools/bin/xcode_backend.sh\" embed\nif [[ \"$CONFIGURATION\" =~ \"Release\" ]];then\n# Release环境删除Flutter.framework \"x86_64\" 框架\nlipo -remove \"x86_64\" \"$FLUTTER_APPLICATION_PATH/.ios/Flutter/engine/Flutter.framework/Flutter\" -output \"$FLUTTER_APPLICATION_PATH/.ios/Flutter/engine/Flutter.framework/Flutter\"\nfi\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"$FLUTTER_ROOT/packages/flutter_tools/bin/xcode_backend.sh\" build\n#\"$FLUTTER_ROOT/packages/flutter_tools/bin/xcode_backend.sh\" Debug\n\"$FLUTTER_ROOT/packages/flutter_tools/bin/xcode_backend.sh\" embed\n#if [[ \"$CONFIGURATION\" =~ \"Release\" ]];then\n# Release环境删除Flutter.framework \"x86_64\" 框架\n#lipo -remove \"x86_64\" \"$FLUTTER_APPLICATION_PATH/.ios/Flutter/engine/Flutter.framework/Flutter\" -output \"$FLUTTER_APPLICATION_PATH/.ios/Flutter/engine/Flutter.framework/Flutter\"\n#fi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -559,7 +554,6 @@
 				EAD49F74228BE5440010D224 /* MyFlutterViewController.m in Sources */,
 				EAAB3168228ADB4500193BAE /* main.m in Sources */,
 				EAAB319A228ADC7600193BAE /* BaseTableViewController.m in Sources */,
-				EAED053C228C235400A16BD4 /* TargetViewController.m in Sources */,
 				EAAB319F228ADC7600193BAE /* UIColor+Tools.m in Sources */,
 				EAAB319D228ADC7600193BAE /* HomeViewController.m in Sources */,
 				EAAB319E228ADC7600193BAE /* UITableViewCell+DequeCell.m in Sources */,
@@ -738,7 +732,6 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
-				FLUTTER_ROOT2 = 222;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -764,7 +757,6 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
-				FLUTTER_ROOT2 = 222;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

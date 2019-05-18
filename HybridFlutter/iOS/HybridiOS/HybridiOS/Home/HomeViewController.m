@@ -7,9 +7,6 @@
 //
 
 #import "HomeViewController.h"
-#import <flutter_boost/FlutterBoost.h>
-#import "MyFlutterViewController.h"
-#import "TargetViewController.h"
 @interface HomeViewController ()
 @property(nonatomic, strong) NSMutableArray *dataList;
 @end
@@ -108,13 +105,8 @@
 //    flutterViewController.hidesBottomBarWhenPushed = YES;
 //    [self.navigationController pushViewController:flutterViewController animated:YES];
     
-    MyFlutterViewController *vc = MyFlutterViewController.new;
-    NSString *name = @"jingyi";
-    NSDictionary *params = @{};
-    [vc setName:name params:params];
-    //[self.navigationController presentViewController:vc animated:YES completion:nil];
-    vc.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:vc animated:YES];
+    [MyFlutterRouter.sharedRouter openPage:@"first" params:@{} animated:YES completion:^(BOOL isFinish){}];
+    
 }
 #pragma mark - getter && setter
 - (NSMutableArray *)dataList

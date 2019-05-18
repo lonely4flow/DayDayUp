@@ -16,11 +16,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"TargetViewController";
     self.view.backgroundColor = [UIColor whiteColor];
     self.fd_prefersNavigationBarHidden = YES;
-    // Do any additional setup after loading the view.
+    
 }
-
-
 @end

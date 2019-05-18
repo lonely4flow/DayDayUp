@@ -13,7 +13,6 @@
 
 
 @interface AppDelegate ()
-//@property(nonatomic, strong) FlutterPluginAppLifeCycleDelegate *lifeCycleDelegate;
 @end
 
 @implementation AppDelegate
@@ -45,122 +44,11 @@
     tabVC.viewControllers = @[nav1,nav2,nav3,nav4];
     self.window.rootViewController = tabVC;
 
+//    [FlutterBoostPlugin.sharedInstance startFlutterWithPlatform:[MyFlutterRouter sharedRouter] onStart:^(FlutterViewController * fvc){
+//        NSLog(@"%@",fvc);
+//    }];
+    
     [self.window makeKeyAndVisible];
-
-    [FlutterBoostPlugin.sharedInstance startFlutterWithPlatform:[MyFlutterRouter sharedRouter] onStart:^(FlutterViewController * fvc){
-        NSLog(@"%@",fvc);
-     }];
     return YES;
 }
-
-/*
-- (void)applicationWillResignActive:(UIApplication *)application
-{
-    [self.lifeCycleDelegate applicationWillResignActive:application];
-}
-
-
-- (void)applicationDidEnterBackground:(UIApplication *)application {
-    [self.lifeCycleDelegate applicationDidEnterBackground:application];
-}
-
-
-- (void)applicationWillEnterForeground:(UIApplication *)application
-{
-    [self.lifeCycleDelegate applicationWillEnterForeground:application];
-}
-
-
-- (void)applicationDidBecomeActive:(UIApplication *)application
-{
-    [self.lifeCycleDelegate applicationDidBecomeActive:application];
-}
-
-
-- (void)applicationWillTerminate:(UIApplication *)application
-{
-    [self.lifeCycleDelegate applicationWillTerminate:application];
-}
-- (void)application:(UIApplication*)application
-didRegisterUserNotificationSettings:(UIUserNotificationSettings*)notificationSettings
-{
-    [self.lifeCycleDelegate application:application
-didRegisterUserNotificationSettings:notificationSettings];
-}
-
-- (void)application:(UIApplication*)application
-didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
-{
-    [self.lifeCycleDelegate application:application
-didRegisterForRemoteNotificationsWithDeviceToken:deviceToken];
-}
-
-- (void)application:(UIApplication*)application
-didReceiveRemoteNotification:(NSDictionary*)userInfo
-fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))completionHandler
-{
-    [self.lifeCycleDelegate application:application
-       didReceiveRemoteNotification:userInfo
-             fetchCompletionHandler:completionHandler];
-}
-
-- (BOOL)application:(UIApplication*)application
-            openURL:(NSURL*)url
-            options:(NSDictionary<UIApplicationOpenURLOptionsKey, id>*)options
-{
-    return [self.lifeCycleDelegate application:application openURL:url options:options];
-}
-
-- (BOOL)application:(UIApplication*)application handleOpenURL:(NSURL*)url
-{
-    return [self.lifeCycleDelegate application:application handleOpenURL:url];
-}
-
-- (BOOL)application:(UIApplication*)application
-            openURL:(NSURL*)url
-  sourceApplication:(NSString*)sourceApplication
-         annotation:(id)annotation
-{
-    return [self.lifeCycleDelegate application:application
-                                   openURL:url
-                         sourceApplication:sourceApplication
-                                annotation:annotation];
-}
-
-- (void)application:(UIApplication*)application
-performActionForShortcutItem:(UIApplicationShortcutItem*)shortcutItem
-  completionHandler:(void (^)(BOOL succeeded))completionHandler NS_AVAILABLE_IOS(9_0)
-{
-    [self.lifeCycleDelegate application:application
-       performActionForShortcutItem:shortcutItem
-                  completionHandler:completionHandler];
-}
-
-- (void)application:(UIApplication*)application
-handleEventsForBackgroundURLSession:(nonnull NSString*)identifier
-  completionHandler:(nonnull void (^)(void))completionHandler
-{
-    [self.lifeCycleDelegate application:application
-handleEventsForBackgroundURLSession:identifier
-                  completionHandler:completionHandler];
-}
-
-- (void)application:(UIApplication*)application
-performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult result))completionHandler
-{
-    [self.lifeCycleDelegate application:application performFetchWithCompletionHandler:completionHandler];
-}
-
-- (void)addApplicationLifeCycleDelegate:(NSObject*)delegate {
-    [self.lifeCycleDelegate addDelegate:delegate];
-}
-#pragma mark - getter && setter
-- (FlutterPluginAppLifeCycleDelegate *)lifeCycleDelegate
-{
-    if (_lifeCycleDelegate == nil) {
-        _lifeCycleDelegate = [FlutterPluginAppLifeCycleDelegate new];
-    }
-    return _lifeCycleDelegate;
-}
- */
 @end

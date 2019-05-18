@@ -5,7 +5,7 @@
   "description": "A new Flutter plugin make flutter better to use!",
   "homepage": "http://example.com",
   "license": {
-    "file": "../LICENSE.md"
+    "file": "../LICENSE"
   },
   "authors": {
     "Alibaba Xianyu": "email@example.com"
@@ -30,7 +30,6 @@
 
     ]
   },
-  "libraries": "c++",
   "platforms": {
     "ios": "8.0"
   }

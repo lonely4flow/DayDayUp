@@ -1,31 +1,58 @@
-
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_boost/flutter_boost.dart';
-
-import 'chaoyue.dart';
-void main() => runApp(_BoostWidget());
-
-class _BoostWidget extends StatefulWidget{
-
-  @override
-  _BoostState createState() => _BoostState();
-
+import 'simple_page_widgets.dart';
+import 'package:flutter/services.dart';
+typedef void NativeCallBack(Object event);
+ const EventChannel eventChannel =  EventChannel("samples.flutter.io/nativeCallFlutter");
+ const MethodChannel platform = const MethodChannel("samples.flutter.io/flutterCallNative");
+  Map<String,NativeCallBack> callbakcs = {};
+void main() {
+  runApp(MyApp());
 }
 
-class _BoostState extends State<_BoostWidget>{
 
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+
+  void _onEvent(Object event)
+  {
+    if(event is Map){
+      String name = event['name'];
+      if(callbakcs[name] != null){
+        callbakcs[name](event);
+      }
+    }
+
+  }
+
+  void _onError(Object error)
+  {
+    setState(() {
+     // _changingStatus = "${error}";
+    });
+  }
   @override
   void initState() {
+    // 接收Native调用
+    eventChannel.receiveBroadcastStream().listen(_onEvent,onError:_onError);
     super.initState();
+
     FlutterBoost.singleton.registerPageBuilders({
-      'jingyi':(pageName, params, _) => JingyiWidget(),
-      'route1':(pageName, params, _){
-        print("myroute1 params:$params");
+      'first': (pageName, params, _) => FirstRouteWidget(),
+      'second': (pageName, params, _) => SecondRouteWidget(),
+      'tab': (pageName, params, _) => TabRouteWidget(),
+      'flutterFragment': (pageName, params, _) => FragmentRouteWidget(params),
 
-        return MyFirstWidget();
-      }
+      ///可以在native层通过 getContainerParams 来传递参数
+      'flutterPage': (pageName, params, _) {
+        print("flutterPage params:$params");
 
+        return FlutterRouteWidget();
+      },
     });
     FlutterBoost.handleOnStartPage();
   }
@@ -38,80 +65,31 @@ class _BoostState extends State<_BoostWidget>{
         home: Container());
   }
 
-}
-
-void _onRoutePushed(
-    String pageName, String uniqueId, Map params, Route route, Future _) {
-}
-
-
-Widget _widgetForRoute(String route) {
-  switch (route) {
-    case 'route1':
-      return MyApp();
-    default:
-      return MyApp();
+  void _onRoutePushed(
+      String pageName, String uniqueId, Map params, Route route, Future _) {
+//    List<OverlayEntry> newEntries = route.overlayEntries
+//        .map((OverlayEntry entry) => OverlayEntry(
+//            builder: (BuildContext context) {
+//              final pageWidget = entry.builder(context);
+//              return Stack(
+//                children: <Widget>[
+//                  pageWidget,
+//                  Positioned(
+//                    child: Text(
+//                      "pageName:$pageName\npageWidget:${pageWidget.toStringShort()}",
+//                      style: TextStyle(fontSize: 12.0, color: Colors.red),
+//                    ),
+//                    left: 8.0,
+//                    top: 8.0,
+//                  )
+//                ],
+//              );
+//            },
+//            opaque: entry.opaque,
+//            maintainState: entry.maintainState))
+//        .toList(growable: true);
+//
+//    route.overlayEntries.clear();
+//    route.overlayEntries.addAll(newEntries);
   }
 }
-
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Test',
-      theme: ThemeData(
-        primarySwatch: Colors.red,
-      ),
-      home: Scaffold(
-          appBar: AppBar(
-            title: Text(
-              "超越小妹妹",
-            ),
-            centerTitle: true,
-          ),
-          body: ListItemPage()
-      ),
-    );
-  }
-}
-
-
-
-class ListItemPage extends StatelessWidget {
-  List<String> items = new List<String>.generate(5, (i) => "item = $i");
-
-  @override
-  Widget build(BuildContext context) {
-    // TODO: implement build
-    return ListView.builder(
-        itemCount: items.length,
-        itemBuilder: (context, index) {
-          return _buildRow();
-        });
-  }
-
-  Widget _buildRow() {
-    return Container(
-      padding: EdgeInsets.fromLTRB(15.0, 10.0, 15.0, 0),
-      child: Column(
-        verticalDirection: VerticalDirection.down,
-        children: <Widget>[
-          Image.network(
-            'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1552992489576&di=d328372c559f27061eec1b61b53884e2&imgtype='
-                '0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201810%2F05%2F20181005012624_hkfqf.jpg',
-            height: 220,
-            fit: BoxFit.fitWidth,
-          ),
-          new Text(
-            "这是超越小妹妹，有人说她是锦鲤，确实是个漂亮的小姑娘，其实她是我的女朋友你们都不知道",
-          )
-        ],
-      ),
-    );
-  }
-}
-
-
-
-
