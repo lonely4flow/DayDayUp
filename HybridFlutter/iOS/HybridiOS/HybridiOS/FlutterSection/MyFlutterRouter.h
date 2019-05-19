@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <flutter_boost/FlutterBoost.h>
 @interface MyFlutterRouter : NSObject <FLBPlatform>
-@property(nonatomic, weak) FlutterViewController *flutterViewController;
+@property(nonatomic, weak) FlutterViewController *fvc;
 + (instancetype)sharedRouter;
 
 /**

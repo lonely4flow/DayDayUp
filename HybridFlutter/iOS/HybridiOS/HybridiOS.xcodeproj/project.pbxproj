@@ -538,7 +538,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"$FLUTTER_ROOT/packages/flutter_tools/bin/xcode_backend.sh\" build\n#\"$FLUTTER_ROOT/packages/flutter_tools/bin/xcode_backend.sh\" Debug\n\"$FLUTTER_ROOT/packages/flutter_tools/bin/xcode_backend.sh\" embed\n#if [[ \"$CONFIGURATION\" =~ \"Release\" ]];then\n# Release环境删除Flutter.framework \"x86_64\" 框架\n#lipo -remove \"x86_64\" \"$FLUTTER_APPLICATION_PATH/.ios/Flutter/engine/Flutter.framework/Flutter\" -output \"$FLUTTER_APPLICATION_PATH/.ios/Flutter/engine/Flutter.framework/Flutter\"\n#fi\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"$FLUTTER_ROOT/packages/flutter_tools/bin/xcode_backend.sh\" build\n\"$FLUTTER_ROOT/packages/flutter_tools/bin/xcode_backend.sh\" embed\n#if [[ \"$CONFIGURATION\" =~ \"Release\" ]];then\n# Release环境删除Flutter.framework \"x86_64\" 框架\n#lipo -remove \"x86_64\" \"$FLUTTER_APPLICATION_PATH/.ios/Flutter/engine/Flutter.framework/Flutter\" -output \"$FLUTTER_APPLICATION_PATH/.ios/Flutter/engine/Flutter.framework/Flutter\"\n#fi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

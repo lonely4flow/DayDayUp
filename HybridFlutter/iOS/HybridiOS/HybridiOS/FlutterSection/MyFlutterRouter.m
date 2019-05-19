@@ -12,7 +12,7 @@
 #import "UINavigationController+FDFullscreenPopGesture.h"
 
 @interface MyFlutterRouter() <FlutterStreamHandler>
-@property(nonatomic, copy) FlutterEventSink eventSink;
+@property(nonatomic, copy) FlutterEventSink nativeCallFlutterEventSink;
 @property(nonatomic, strong) UINavigationController *navigationController;
 @end
 
@@ -28,22 +28,30 @@
         // 初始化Router
         [FlutterBoostPlugin.sharedInstance startFlutterWithPlatform:_instance onStart:^(FlutterViewController * fvc){
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.001 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                MyFlutterRouter.sharedRouter.flutterViewController = fvc;
-                [MyFlutterRouter.sharedRouter setupFlutterCallNative];
-                [MyFlutterRouter.sharedRouter setupNativeCallFlutter];
+                MyFlutterRouter.sharedRouter.fvc = fvc;
+               
             });
         }];
     });
     return _instance;
+}
+- (void)setFvc:(FlutterViewController *)fvc
+{
+    _fvc = fvc;
+    if(fvc != nil){
+        [self setupFlutterCallNative];
+        [self setupNativeCallFlutter];
+    }
+    
 }
 #pragma mark - FlutterCallNative
 - (void)setupFlutterCallNative
 {
     // 用于Flutter 调用 Native
     // 这个channelname必须与Native里接收的一致
-    FlutterMethodChannel *batteryChannel = [FlutterMethodChannel methodChannelWithName:@"samples.flutter.io/flutterCallNative" binaryMessenger:self.flutterViewController];
+    FlutterMethodChannel *flutterCallNativeChannel = [FlutterMethodChannel methodChannelWithName:@"samples.flutter.io/flutterCallNative" binaryMessenger:self.fvc];
     
-    [batteryChannel setMethodCallHandler:^(FlutterMethodCall *call, FlutterResult result) {
+    [flutterCallNativeChannel setMethodCallHandler:^(FlutterMethodCall *call, FlutterResult result) {
         NSLog(@"method: %@",call.method);
         NSLog(@"arguments: %@",call.arguments);
         if([@"getBatteryLevel" isEqualToString:call.method]){
@@ -86,12 +94,12 @@
 - (void)setupNativeCallFlutter
 {
     // 用于Native调用Flutter
-    FlutterEventChannel *eventChanel = [FlutterEventChannel eventChannelWithName:@"samples.flutter.io/nativeCallFlutter" binaryMessenger:self.flutterViewController];
-    [eventChanel setStreamHandler:self];
+    FlutterEventChannel *nativeCallFlutterChannel = [FlutterEventChannel eventChannelWithName:@"samples.flutter.io/nativeCallFlutter" binaryMessenger:self.fvc];
+    [nativeCallFlutterChannel setStreamHandler:self];
 }
 - (FlutterError *)onListenWithArguments:(id)arguments eventSink:(FlutterEventSink)events
 {
-    self.eventSink = events;
+    self.nativeCallFlutterEventSink = events;
 //    static NSInteger mm = 0;
 //    [NSTimer scheduledTimerWithTimeInterval:1 repeats:YES block:^(NSTimer * _Nonnull timer) {
 //        if (!_eventSink) return;
@@ -102,13 +110,13 @@
 }
 - (FlutterError*)onCancelWithArguments:(id)arguments {
     //[[NSNotificationCenter defaultCenter] removeObserver:self];
-    self.eventSink = nil;
+    self.nativeCallFlutterEventSink = nil;
     return nil;
 }
 - (void)callFluterWithName:(NSString *)name params:(id)params
 {
-    if(self.eventSink){
-        self.eventSink(@{@"name":name?:@"",@"params":params ?: [NSNull null]});
+    if(self.nativeCallFlutterEventSink){
+        self.nativeCallFlutterEventSink(@{@"name":name?:@"",@"params":params ?: [NSNull null]});
     }else{
         WS(weakSelf)
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{

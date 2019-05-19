@@ -3,9 +3,12 @@ import 'package:flutter_boost/flutter_boost.dart';
 import 'simple_page_widgets.dart';
 import 'package:flutter/services.dart';
 typedef void NativeCallBack(Object event);
- const EventChannel eventChannel =  EventChannel("samples.flutter.io/nativeCallFlutter");
+Map<String,NativeCallBack> callbakcs = {};
+
+ const EventChannel eventChannel = const EventChannel("samples.flutter.io/nativeCallFlutter");
  const MethodChannel platform = const MethodChannel("samples.flutter.io/flutterCallNative");
-  Map<String,NativeCallBack> callbakcs = {};
+
+
 void main() {
   runApp(MyApp());
 }
