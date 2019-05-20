@@ -29,9 +29,9 @@
 - (void)setupDatas
 {
     [self.dataList addObject:[BaseCellModel modelWithTitle:@"跳转到Native页面" clazz:[BaseViewController class]]];
-    [self.dataList addObject:[BaseCellModel modelWithTitle:@"跳转到Flutter-first" flutterPageName:@"first"]];
-    [self.dataList addObject:[BaseCellModel modelWithTitle:@"跳转到Flutter-TestList" flutterPageName:@"testList"]];
-    [self.dataList addObject:[BaseCellModel modelWithTitle:@"跳转到Flutter-TestFlutterJumpFlutter" flutterPageName:@"TestFlutterJumpFlutter"]];
+    [self.dataList addObject:[BaseCellModel modelWithTitle:@"Native->Flutter-first" flutterPageName:@"first"]];
+    [self.dataList addObject:[BaseCellModel modelWithTitle:@"Native->Native(Flutter)-Native(flutter)" flutterPageName:@"testList"]];
+    [self.dataList addObject:[BaseCellModel modelWithTitle:@"Native-Native(Flutter)-Flutter-Native(Flutter)" flutterPageName:@"TestFlutterJumpFlutter"]];
     
 }
 - (void)setupUI

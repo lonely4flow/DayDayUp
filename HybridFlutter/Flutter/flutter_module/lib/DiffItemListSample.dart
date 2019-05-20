@@ -6,7 +6,7 @@ class DiffItemListSample extends StatelessWidget
   @override
   Widget build(BuildContext context) {
     final items = new List<ListItem>.generate(1000, (i){
-      return i % 6 == 0 ? new HeadingItem("Heading $i") : new MessageItem("Sender $i", "Message body $i");
+      return i % 6 == 0 ? new HeadingItem("Heading $i 跳转到Native(Flutter)") : new MessageItem("Sender $i", "Message body $i");
     });
     return new Scaffold(
       appBar: new AppBar(title: new Text("Mixed List"),),
