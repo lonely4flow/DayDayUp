@@ -13,7 +13,8 @@
 
 @interface MyFlutterRouter() <FlutterStreamHandler>
 @property(nonatomic, copy) FlutterEventSink nativeCallFlutterEventSink;
-@property(nonatomic, strong) UINavigationController *navigationController;
+@property(nonatomic, strong,readonly) UINavigationController *navigationController;
+@property(nonatomic, strong, readonly) UIViewController *currentFlutterVC;
 @end
 
 @implementation MyFlutterRouter
@@ -35,15 +36,33 @@
     });
     return _instance;
 }
-- (void)setFvc:(FlutterViewController *)fvc
+#pragma mark - push/pop/close
+- (void)openPage:(NSString *)name params:(NSDictionary *)params animated:(BOOL)animated completion:(void (^)(BOOL))completion
 {
-    _fvc = fvc;
-    if(fvc != nil){
-        [self setupFlutterCallNative];
-        [self setupNativeCallFlutter];
+    if([params[@"present"] boolValue]){
+        MyFlutterViewController *vc = MyFlutterViewController.new;
+        [vc setName:name params:params];
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController presentViewController:vc animated:animated completion:^{}];
+    }else{
+        MyFlutterViewController *vc = MyFlutterViewController.new;
+        vc.hidesBottomBarWhenPushed = YES;
+        [vc setName:name params:params];
+        [self.navigationController pushViewController:vc animated:animated];
     }
-    
 }
+
+
+- (void)closePage:(NSString *)uid animated:(BOOL)animated params:(NSDictionary *)params completion:(void (^)(BOOL))completion
+{
+    FLBFlutterViewContainer *vc = (id)self.navigationController.presentedViewController;
+    if([vc isKindOfClass:FLBFlutterViewContainer.class] && [vc.uniqueIDString isEqual: uid]){
+        [vc dismissViewControllerAnimated:animated completion:^{}];
+    }else{
+        [self.navigationController popViewControllerAnimated:animated];
+    }
+}
+
 #pragma mark - FlutterCallNative
 - (void)setupFlutterCallNative
 {
@@ -68,26 +87,26 @@
             //batteryChannel cal
         }else if([@"isShowNav" isEqualToString:call.method]){
             // 返回原生导航栏是否是显示的状态
-           result(@(![weakSelf currentFlutterVC].fd_prefersNavigationBarHidden));
+           result(@(!weakSelf.currentFlutterVC.fd_prefersNavigationBarHidden));
         }else if([@"hideNav" isEqualToString:call.method]){
            // 关闭原生导航栏
-            [weakSelf currentFlutterVC].fd_prefersNavigationBarHidden = YES;
+            weakSelf.currentFlutterVC.fd_prefersNavigationBarHidden = YES;
             BOOL animited = [call.arguments boolValue];
             [weakSelf.navigationController setNavigationBarHidden:YES animated:animited];
             result(@(NO));
         }else if([@"showNav" isEqualToString:call.method]){
             // 显示原生导航栏
-            [weakSelf currentFlutterVC].fd_prefersNavigationBarHidden = NO;
+            weakSelf.currentFlutterVC.fd_prefersNavigationBarHidden = NO;
             BOOL animited = [call.arguments boolValue];
             [weakSelf.navigationController setNavigationBarHidden:NO animated:animited];
             result(@(YES));
         }else if([@"enableGesture" isEqualToString:call.method]){
             // 允许原生侧滑
-            [weakSelf currentFlutterVC].fd_interactivePopDisabled = NO;
+            weakSelf.currentFlutterVC.fd_interactivePopDisabled = NO;
             result(@(YES));
         }else if([@"disEnableGesture" isEqualToString:call.method]){
             // 禁止原生侧滑
-            [weakSelf currentFlutterVC].fd_interactivePopDisabled = YES;
+            weakSelf.currentFlutterVC.fd_interactivePopDisabled = YES;
             result(@(NO));
         }
         else{
@@ -96,14 +115,7 @@
         
     }];
 }
-- (UIViewController *)currentFlutterVC
-{
-     UIViewController *currentFlutterVC = self.navigationController.childViewControllers.lastObject;
-    if([currentFlutterVC isKindOfClass:[MyFlutterViewController class]]){
-        return currentFlutterVC;
-    }
-    return nil;
-}
+
 #pragma mark - NativeCallFlutter
 - (void)setupNativeCallFlutter
 {
@@ -138,43 +150,39 @@
         });
     }
 }
-#pragma mark - push/pop/close
-- (void)openPage:(NSString *)name params:(NSDictionary *)params animated:(BOOL)animated completion:(void (^)(BOOL))completion
-{
-        if([params[@"present"] boolValue]){
-            MyFlutterViewController *vc = MyFlutterViewController.new;
-            [vc setName:name params:params];
-            vc.hidesBottomBarWhenPushed = YES;
-            [self.navigationController presentViewController:vc animated:animated completion:^{}];
-        }else{
-            MyFlutterViewController *vc = MyFlutterViewController.new;
-            vc.hidesBottomBarWhenPushed = YES;
-            [vc setName:name params:params];
-            [self.navigationController pushViewController:vc animated:animated];
-        }
-    }
-    
-    
-- (void)closePage:(NSString *)uid animated:(BOOL)animated params:(NSDictionary *)params completion:(void (^)(BOOL))completion
-{
-    FLBFlutterViewContainer *vc = (id)self.navigationController.presentedViewController;
-    if([vc isKindOfClass:FLBFlutterViewContainer.class] && [vc.uniqueIDString isEqual: uid]){
-        [vc dismissViewControllerAnimated:animated completion:^{}];
-    }else{
-        [self.navigationController popViewControllerAnimated:animated];
-    }
-}
+
+#pragma mark - getter && setter
 - (UINavigationController *)navigationController
 {
-    UITabBarController *tabVC = (UITabBarController *)[UIApplication sharedApplication].delegate.window.rootViewController;
-    if([tabVC isKindOfClass:[UITabBarController class]]){
-        UINavigationController *nav = (UINavigationController *)tabVC.selectedViewController;
-        if([nav isKindOfClass:[UINavigationController class]]){
-            return nav;
+    UIViewController *rootVC = [UIApplication sharedApplication].delegate.window.rootViewController;
+    if([rootVC isKindOfClass:[UITabBarController class]]){
+        UITabBarController *tabVC = (UITabBarController *)rootVC;
+        UIViewController *selectVC = tabVC.selectedViewController;
+        if([selectVC isKindOfClass:[UINavigationController class]]){
+            return (UINavigationController *)selectVC;
         }else{
             return [[UINavigationController alloc] init];
         }
+    }else if ([rootVC isKindOfClass:[UINavigationController class]]){
+        return (UINavigationController *)rootVC;
     }
     return [[UINavigationController alloc] init];
+}
+- (UIViewController *)currentFlutterVC
+{
+    UIViewController *currentFlutterVC = self.navigationController.childViewControllers.lastObject;
+    if([currentFlutterVC isKindOfClass:[MyFlutterViewController class]]){
+        return currentFlutterVC;
+    }
+    return nil;
+}
+- (void)setFvc:(FlutterViewController *)fvc
+{
+    _fvc = fvc;
+    if(fvc != nil){
+        [self setupFlutterCallNative];
+        [self setupNativeCallFlutter];
+    }
+    
 }
 @end
