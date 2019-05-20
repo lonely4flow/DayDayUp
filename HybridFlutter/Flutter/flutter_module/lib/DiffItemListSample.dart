@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_boost/flutter_boost.dart';
 
 class DiffItemListSample extends StatelessWidget
 {
@@ -15,7 +16,10 @@ class DiffItemListSample extends StatelessWidget
           final item = items[index];
           if(item is HeadingItem){
             return new ListTile(
-              title: new Text(item.heading)
+              title: new Text(item.heading),
+              onTap:(){
+                FlutterBoost.singleton.openPage("first", {}, animated: true);
+              },
             );
           }else if(item is MessageItem){
             return new ListTile(

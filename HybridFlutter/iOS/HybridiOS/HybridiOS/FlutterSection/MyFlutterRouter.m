@@ -51,13 +51,9 @@
     // 这个channelname必须与Native里接收的一致
     FlutterMethodChannel *flutterCallNativeChannel = [FlutterMethodChannel methodChannelWithName:@"samples.flutter.io/flutterCallNative" binaryMessenger:self.fvc];
     
+    WS(weakSelf)
     [flutterCallNativeChannel setMethodCallHandler:^(FlutterMethodCall *call, FlutterResult result) {
-        NSLog(@"method: %@",call.method);
-        NSLog(@"arguments: %@",call.arguments);
         if([@"getBatteryLevel" isEqualToString:call.method]){
-//            result([FlutterError errorWithCode:@"UNAVAILABLE"
-//                                       message:@"iOS ====== Battery info unavailable2222"
-//                                       details:nil]);
             result(@"Battery info iOS 1234567");
         }else if([@"updateUserInfo" isEqualToString:call.method]){
             NSDictionary *params = call.arguments;
@@ -71,24 +67,42 @@
         }else if([@"nativeCallFlutter" isEqualToString:call.method]){
             //batteryChannel cal
         }else if([@"isShowNav" isEqualToString:call.method]){
-           result(@(! self.navigationController.childViewControllers.lastObject.fd_prefersNavigationBarHidden));
-            
+            // 返回原生导航栏是否是显示的状态
+           result(@(![weakSelf currentFlutterVC].fd_prefersNavigationBarHidden));
         }else if([@"hideNav" isEqualToString:call.method]){
-            self.navigationController.childViewControllers.lastObject.fd_prefersNavigationBarHidden = YES;
+           // 关闭原生导航栏
+            [weakSelf currentFlutterVC].fd_prefersNavigationBarHidden = YES;
             BOOL animited = [call.arguments boolValue];
-            [self.navigationController setNavigationBarHidden:YES animated:animited];
+            [weakSelf.navigationController setNavigationBarHidden:YES animated:animited];
             result(@(NO));
         }else if([@"showNav" isEqualToString:call.method]){
-            self.navigationController.childViewControllers.lastObject.fd_prefersNavigationBarHidden = NO;
+            // 显示原生导航栏
+            [weakSelf currentFlutterVC].fd_prefersNavigationBarHidden = NO;
             BOOL animited = [call.arguments boolValue];
-            [self.navigationController setNavigationBarHidden:NO animated:animited];
+            [weakSelf.navigationController setNavigationBarHidden:NO animated:animited];
             result(@(YES));
+        }else if([@"enableGesture" isEqualToString:call.method]){
+            // 允许原生侧滑
+            [weakSelf currentFlutterVC].fd_interactivePopDisabled = NO;
+            result(@(YES));
+        }else if([@"disEnableGesture" isEqualToString:call.method]){
+            // 禁止原生侧滑
+            [weakSelf currentFlutterVC].fd_interactivePopDisabled = YES;
+            result(@(NO));
         }
         else{
             result(FlutterMethodNotImplemented);
         }
         
     }];
+}
+- (UIViewController *)currentFlutterVC
+{
+     UIViewController *currentFlutterVC = self.navigationController.childViewControllers.lastObject;
+    if([currentFlutterVC isKindOfClass:[MyFlutterViewController class]]){
+        return currentFlutterVC;
+    }
+    return nil;
 }
 #pragma mark - NativeCallFlutter
 - (void)setupNativeCallFlutter

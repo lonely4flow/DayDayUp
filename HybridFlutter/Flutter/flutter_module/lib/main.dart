@@ -1,12 +1,15 @@
+import 'package:advance_study/TestListView.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_boost/flutter_boost.dart';
+import 'TestFlutterJumpFlutter.dart';
 import 'simple_page_widgets.dart';
 import 'package:flutter/services.dart';
-typedef void NativeCallBack(Object event);
-Map<String,NativeCallBack> callbakcs = {};
 
- const EventChannel eventChannel = const EventChannel("samples.flutter.io/nativeCallFlutter");
- const MethodChannel platform = const MethodChannel("samples.flutter.io/flutterCallNative");
+typedef void NativeCallBack(dynamic object);
+final Map<String, NativeCallBack> native_flutter_callbakcs = <String, NativeCallBack>{};
+
+const EventChannel eventChannel = const EventChannel("samples.flutter.io/nativeCallFlutter");
+const MethodChannel platform = const MethodChannel("samples.flutter.io/flutterCallNative");
 
 
 void main() {
@@ -25,8 +28,8 @@ class _MyAppState extends State<MyApp> {
   {
     if(event is Map){
       String name = event['name'];
-      if(callbakcs[name] != null){
-        callbakcs[name](event);
+      if(native_flutter_callbakcs[name] != null){
+        native_flutter_callbakcs[name](event);
       }
     }
 
@@ -56,6 +59,10 @@ class _MyAppState extends State<MyApp> {
 
         return FlutterRouteWidget();
       },
+    });
+    FlutterBoost.singleton.registerPageBuilders({
+      'testList':(pageName,params,_) => TestListView(),
+      'TestFlutterJumpFlutter':(pageName,params,_)=> TestFlutterJumpFlutter()
     });
     FlutterBoost.handleOnStartPage();
   }

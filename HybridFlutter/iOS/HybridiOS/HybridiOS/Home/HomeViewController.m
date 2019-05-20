@@ -28,7 +28,11 @@
 }
 - (void)setupDatas
 {
-    [self.dataList addObject:[BaseCellModel modelWithTitle:@"跳转到Flutter" clazz:[BaseViewController class]]];
+    [self.dataList addObject:[BaseCellModel modelWithTitle:@"跳转到Native页面" clazz:[BaseViewController class]]];
+    [self.dataList addObject:[BaseCellModel modelWithTitle:@"跳转到Flutter-first" flutterPageName:@"first"]];
+    [self.dataList addObject:[BaseCellModel modelWithTitle:@"跳转到Flutter-TestList" flutterPageName:@"testList"]];
+    [self.dataList addObject:[BaseCellModel modelWithTitle:@"跳转到Flutter-TestFlutterJumpFlutter" flutterPageName:@"TestFlutterJumpFlutter"]];
+    
 }
 - (void)setupUI
 {
@@ -58,55 +62,15 @@
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
     });
-//    BaseCellModel *model = self.dataList[indexPath.row];
-//    if(model.clazz != nil){
-//        UIViewController *vc = [model.clazz new];
-//        vc.hidesBottomBarWhenPushed = YES;
-//        [self.navigationController pushViewController:vc animated:YES];
-//    }
-//    __block MyFlutterViewController *flutterViewController = [[MyFlutterViewController alloc] initWithProject:nil nibName:nil bundle:nil];
-//    // 设置路由名字 跳转到不同的flutter界面
-//    [flutterViewController setInitialRoute:@"myApp"];
-//    WS(weakSelf)
-//    // 要与main.dart中一致
-//    NSString *channelName = @"com.pages.your/native_get";
-//    FlutterMethodChannel *messageChannel = [FlutterMethodChannel methodChannelWithName:channelName binaryMessenger:flutterViewController];
-//    [messageChannel setMethodCallHandler:^(FlutterMethodCall * _Nonnull call, FlutterResult  _Nonnull result) {
-//        // call.method 获取 flutter 给回到的方法名，要匹配到 channelName 对应的多个 发送方法名，一般需要判断区分
-//        // call.arguments 获取到 flutter 给到的参数，（比如跳转到另一个页面所需要参数）
-//        // result 是给flutter的回调， 该回调只能使用一次
-//        NSLog(@"method=%@ \narguments = %@", call.method, call.arguments);
-//
-//        // method和WKWebView里面JS交互很像
-//        // flutter点击事件执行后在iOS跳转TargetViewController
-//        if ([call.method isEqualToString:@"iOSFlutter"]) {
-//            TargetViewController *vc = [[TargetViewController alloc] init];
-//            [weakSelf.navigationController pushViewController:vc animated:YES];
-//            //[flutterViewController popRoute];
-//        }
-//        // flutter传参给iOS
-//        if ([call.method isEqualToString:@"iOSFlutter1"]) {
-//            NSDictionary *dic = call.arguments;
-//            NSLog(@"arguments = %@", dic);
-//            NSString *code = dic[@"code"];
-//            NSArray *data = dic[@"data"];
-//            NSLog(@"code = %@", code);
-//            NSLog(@"data = %@",data);
-//            NSLog(@"data 第一个元素%@",data[0]);
-//            NSLog(@"data 第一个元素类型%@",[data[0] class]);
-//        }
-//        // iOS给iOS返回值
-//        if ([call.method isEqualToString:@"iOSFlutter2"]) {
-//            if (result) {
-//                result(@"返回给flutter的内容");
-//            }
-//        }
-//    }];
-//    flutterViewController.hidesBottomBarWhenPushed = YES;
-//    [self.navigationController pushViewController:flutterViewController animated:YES];
-    
-    [MyFlutterRouter.sharedRouter openPage:@"first" params:@{} animated:YES completion:^(BOOL isFinish){}];
-    
+    BaseCellModel *model = self.dataList[indexPath.row];
+    if(model.isFlutterPage){
+        [MyFlutterRouter.sharedRouter openPage:model.flutterPageName params:@{} animated:YES completion:^(BOOL isFinish){}];
+    }else if(model.clazz != nil){
+        UIViewController *vc = [model.clazz new];
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+
 }
 #pragma mark - getter && setter
 - (NSMutableArray *)dataList

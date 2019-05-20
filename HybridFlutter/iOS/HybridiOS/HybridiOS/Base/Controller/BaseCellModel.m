@@ -16,4 +16,12 @@
     model.clazz = clazz;
     return model;
 }
++ (instancetype)modelWithTitle:(NSString *)title flutterPageName:(NSString *)pageName
+{
+    BaseCellModel *model = [BaseCellModel new];
+    model.title = title;
+    model.flutterPageName = pageName;
+    model.isFlutterPage = YES;
+    return model;
+}
 @end

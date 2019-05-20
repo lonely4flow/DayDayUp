@@ -1,34 +1,31 @@
 import 'package:flutter/material.dart';
-import 'package:learn_flutter/BasicAppBarSample.dart';
-import 'package:learn_flutter/SecondPage.dart';
-import 'package:learn_flutter/PrefferedSizeListSample.dart';
-import 'package:learn_flutter/AnimatedListSample.dart';
 
+import 'AnimatedListSample.dart';
+import 'BasicAppBarSample.dart';
 import 'BigListViewSample.dart';
-import 'CridListSample.dart';
+import 'GridListSample.dart';
 import 'DiffItemListSample.dart';
 import 'ExpansionTileSample.dart';
-import 'FlutterCallNative.dart';
+
 import 'HorizontalListSample.dart';
 import 'MinePage.dart';
-import 'NativeCallFlutter.dart';
+import 'PrefferedSizeListSample.dart';
 import 'TabbedAppBarSample.dart';
+import 'main.dart';
 
 
 const List<ItemModel> dataList = const <ItemModel>[
-const ItemModel(title:"SecondPage",nextVC: "/aa"),
-const ItemModel(title:"基本Basic-BasicAppBarSample",nextVC: "BasicAppBarSample"),
-const ItemModel(title: "PrefferedSizeListSample",nextVC: "PrefferedSizeListSample"),
-const ItemModel(title: "AnimatedListSample",nextVC: "AnimatedListSample"),
-const ItemModel(title: "ExpansionTileSample",nextVC: "ExpansionTileSample"),
-const ItemModel(title: "TabbedAppBarSample",nextVC: "TabbedAppBarSample"),
-const ItemModel(title: "BigListViewSample",nextVC: "BigListViewSample"),
-const ItemModel(title: "DiffItemListSample",nextVC: "DiffItemListSample"),
-const ItemModel(title: "HorizontalListSample",nextVC: "HorizontalListSample"),
-const ItemModel(title: "GridListSample",nextVC: "GridListSample"),
-const ItemModel(title: "MinePage",nextVC: "MinePage"),
-const ItemModel(title: "FlutterCallNative",nextVC: "FlutterCallNative"),
-const ItemModel(title: "NativeCallFlutter",nextVC: "NativeCallFlutter"),
+  const ItemModel(title:"基本Basic-BasicAppBarSample",nextVC: "BasicAppBarSample"),
+  const ItemModel(title: "PrefferedSizeListSample",nextVC: "PrefferedSizeListSample"),
+  const ItemModel(title: "AnimatedListSample",nextVC: "AnimatedListSample"),
+  const ItemModel(title: "ExpansionTileSample",nextVC: "ExpansionTileSample"),
+  const ItemModel(title: "TabbedAppBarSample",nextVC: "TabbedAppBarSample"),
+  const ItemModel(title: "BigListViewSample",nextVC: "BigListViewSample"),
+  const ItemModel(title: "DiffItemListSample",nextVC: "DiffItemListSample"),
+  const ItemModel(title: "HorizontalListSample",nextVC: "HorizontalListSample"),
+  const ItemModel(title: "GridListSample",nextVC: "GridListSample"),
+  const ItemModel(title: "MinePage",nextVC: "MinePage"),
+
 
 
 ];
@@ -41,15 +38,14 @@ class ItemModel {
 
 }
 
-class TestListView extends StatelessWidget {
+class TestFlutterJumpFlutter extends StatelessWidget {
 
 
+  void _pushToNext(BuildContext context,ItemModel item) async {
 
-  void _pushToNext(BuildContext context,ItemModel item){
-    Navigator.of(context).push(new MaterialPageRoute(builder:(_){
-      if('/aa' == item.nextVC){
-        return new SecondPage();
-      }else if("BasicAppBarSample" == item.nextVC){
+    platform.invokeMethod("disEnableGesture");
+    final dynamic result = await Navigator.of(context).push(new MaterialPageRoute(builder:(_){
+      if("BasicAppBarSample" == item.nextVC){
         return new BasicAppBarSample();
       }else if("PrefferedSizeListSample" == item.nextVC){
         return new PrefferedSizeListSample();
@@ -69,17 +65,17 @@ class TestListView extends StatelessWidget {
         return new GridListSample();
       }else if("MinePage" == item.nextVC){
         return new MinePage();
-      }else if("FlutterCallNative" == item.nextVC){
-        return new FlutterCallNative();
-      }else if("NativeCallFlutter" == item.nextVC){
-        return new NativeCallFlutter();
       }
 
 
     }));
+    platform.invokeMethod("enableGesture");
+
+
   }
   @override
   Widget build(BuildContext context) {
+
 
     final tiles = dataList.map((item){
       return new ListTile(
@@ -91,12 +87,12 @@ class TestListView extends StatelessWidget {
     }).toList();
 
     final divided = ListTile.divideTiles(
-     context: context,
+      context: context,
       tiles: tiles,
     ).toList();
 
     final listView = new ListView(
-      children:divided
+        children:divided
     );
 
     final listView2 = new ListView(
@@ -113,4 +109,3 @@ class TestListView extends StatelessWidget {
 
   }
 }
-
